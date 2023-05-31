@@ -1,42 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Memilih elemen tombol "Login" berdasarkan class
   const loginButton = document.querySelector('.btn.btn-primary.w-100.mb-3');
 
-  // Menambahkan event listener ke tombol Login
   loginButton.addEventListener('click', function(event) {
-    event.preventDefault(); // Menghentikan perilaku default dari tombol submit
-
-    // Mengambil nilai dari input username dan password
+    event.preventDefault();
     const username = document.getElementById('log-username').value;
     const password = document.getElementById('log-password').value;
 
-    // Memeriksa apakah username atau password kosong
     if (username === '' || password === '') {
       alert('Data tidak boleh kosong!');
       return false;
     }
 
-    // Memeriksa apakah data yang dimasukkan sesuai dengan yang ada di Local Storage
-    const storedUsername = localStorage.getItem('username');
-    const storedPassword = localStorage.getItem('password');
+    let users = JSON.parse(localStorage.getItem('users')) || [];
 
-    if (username === storedUsername && password === storedPassword) {
+    const matchedUser = users.find(user => user.username === username && user.password === password);
+
+    if (matchedUser) {
       alert('Login berhasil!');
-      // Mengarahkan ke halaman home.html
+      localStorage.setItem('loggedInUser', JSON.stringify(matchedUser.username));
       window.location.href = 'home.html';
     } else {
       alert('Login gagal. Username atau password salah!');
     }
   });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  // Memeriksa apakah ada data pengguna yang disimpan di Local Storage
-  const storedUsername = localStorage.getItem('username');
-
-  // Mengubah isi dari elemen h2 dengan id "user" menjadi nama pengguna
-  const userElement = document.getElementById('user');
-  if (storedUsername) {
-    userElement.textContent = `Welcome, ${storedUsername}☺️`;
-  }
 });
