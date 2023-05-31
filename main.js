@@ -18,3 +18,35 @@ function validateForm(event) {
     window.location.href = "login.html";
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Memilih elemen tombol "Login" berdasarkan class
+  const loginButton = document.querySelector('.btn.btn-primary.w-100.mb-3');
+
+  // Menambahkan event listener ke tombol "Login"
+  loginButton.addEventListener('click', function(event) {
+    event.preventDefault(); // Menghentikan perilaku default dari tombol submit
+
+    // Mengambil nilai dari input username dan password
+    const username = document.getElementById('log-username').value;
+    const password = document.getElementById('log-password').value;
+
+    // Memeriksa apakah username atau password kosong
+    if (username === '' || password === '') {
+      alert('Data tidak boleh kosong!');
+      return false;
+    }
+
+    // Memeriksa apakah data yang dimasukkan sesuai dengan yang ada di Local Storage
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+
+    if (username === storedUsername && password === storedPassword) {
+      alert('Login berhasil!');
+      // Mengarahkan ke halaman "home.html"
+      window.location.href = 'home.html';
+    } else {
+      alert('Login gagal. Username atau password salah!');
+    }
+  });
+});
