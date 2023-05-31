@@ -9,10 +9,21 @@ function validateForm(event) {
       alert("Data tidak boleh kosong!");
       return false;
     } else {
+      // Mengambil data dari Local Storage (jika ada)
+      let existingData = JSON.parse(localStorage.getItem("users")) || [];
+  
+      // Membuat objek baru untuk data pengguna
+      let user = {
+        username: username,
+        email: email,
+        password: password
+      };
+  
+      // Menambahkan data pengguna baru ke dalam array existingData
+      existingData.push(user);
+  
       // Menyimpan data ke dalam Local Storage
-      localStorage.setItem("username", username);
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+      localStorage.setItem("users", JSON.stringify(existingData));
   
       alert("Register berhasil!");
       window.location.href = "login.html";

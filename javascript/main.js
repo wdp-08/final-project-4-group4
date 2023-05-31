@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Memilih elemen tombol "Login" berdasarkan class
   const loginButton = document.querySelector('.btn.btn-primary.w-100.mb-3');
 
-  // Menambahkan event listener ke tombol "Login"
+  // Menambahkan event listener ke tombol Login
   loginButton.addEventListener('click', function(event) {
     event.preventDefault(); // Menghentikan perilaku default dari tombol submit
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (username === storedUsername && password === storedPassword) {
       alert('Login berhasil!');
-      // Mengarahkan ke halaman "home.html"
+      // Mengarahkan ke halaman home.html
       window.location.href = 'home.html';
     } else {
       alert('Login gagal. Username atau password salah!');
