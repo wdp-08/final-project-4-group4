@@ -50,3 +50,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Memeriksa apakah ada data pengguna yang disimpan di Local Storage
+  const storedUsername = localStorage.getItem('username');
+
+  // Mengubah isi dari elemen h2 dengan id "user" menjadi nama pengguna
+  const userElement = document.getElementById('user');
+  if (storedUsername) {
+    userElement.textContent = `Welcome, ${storedUsername}☺️`;
+  }
+});
