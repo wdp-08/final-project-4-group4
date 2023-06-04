@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (matchedUser) {
       alert('Login berhasil!');
-      localStorage.setItem('LoginUser', JSON.stringify(matchedUser.username));
+      localStorage.setItem('loginUser', JSON.stringify(matchedUser.username));
       window.location.href = 'home.html';
     } else {
       alert('Login gagal. Username atau password salah!');
