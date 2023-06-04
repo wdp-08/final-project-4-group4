@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   logoutButton.addEventListener('click', function(event) {
     event.preventDefault();
-    localStorage.removeItem('LoginUser');
+    localStorage.removeItem('loginUser');
     alert('Logout berhasil!');
     window.location.href = 'login.html';
   });
