@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('img/bg.jpg');
+    background-size: cover;
+  }
+
+  .box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 5%;
+  }
