@@ -67,25 +67,27 @@ body {
 }  
 
 .container {
-    width: 900px;
+    width: 1000px;
     height: 400px;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 5px;
     perspective: 1000px;
-    margin-top: 110px;
+    margin-top: 130px;
     justify-content: center;
 }
 
 .memory-card {
-    width: calc(15% - 5px);
-    height: calc(37% - 10px);
+    width: calc(14% - 19px);
+    height: calc(33% - 10px);
     position: relative;
     transform: scale(1);
     transform-style: preserve-3d;
+    /* box-shadow: 2px 2px 2px rgba(10, 228, 2, 0.3); */
     align-items: center;
     justify-content: center;
+    /* border: 2px solid lime; */
 }
 
 .memory-card .back-view {
@@ -104,9 +106,9 @@ body {
 
 .front-view,
 .back-view {
-    width: 120px;
-    height: 120px;
-    padding: 15px;
+    width: 115px;
+    height: 115px;
+    padding: 20px;
     border-radius: 5px;
     margin-top: 5px;
     background-color: #f8f8f8;
@@ -120,4 +122,3 @@ body {
     justify-content: center;
     align-items: center;
 }
-
