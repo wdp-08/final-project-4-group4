@@ -20,18 +20,19 @@ body {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-  
+
 @keyframes slidein {
     from {
-      background-position: top;
-      background-size: 3000px;
+        background-position: top;
+        background-size: 3000px;
     }
+
     to {
-      background-position: -100px 0px;
-      background-size: 2750px;
+        background-position: -100px 0px;
+        background-size: 2750px;
     }
 }
-  
+
 .center {
     display: flex;
     justify-content: center;
@@ -40,9 +41,9 @@ body {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 0;    
-} 
-  
+    left: 0;
+}
+
 .waviy {
     position: relative;
     font-weight: bold;
@@ -61,10 +62,12 @@ body {
 }
 
 @keyframes flip {
-    0%,80% {
-      transform: rotateY(360deg) 
+
+    0%,
+    80% {
+        transform: rotateY(360deg)
     }
-}  
+}
 
 .container {
     width: 1200px;
@@ -92,14 +95,14 @@ body {
     transform: rotateY(-180deg);
 }
 
-.memory-card:hover .front-view {
+.memory-card.flip .front-view {
     /* Flip card */
-    transform: rotateY(180deg); 
+    transform: rotateY(180deg);
 }
 
-.memory-card:hover .back-view {
+.memory-card.flip .back-view {
     /* Flip card */
-    transform: rotateY(0); 
+    transform: rotateY(0);
 }
 
 .front-view,
@@ -119,4 +122,32 @@ body {
     user-select: none;
     justify-content: center;
     align-items: center;
+}
+
+.memory-card.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(-13px);
+    }
+
+    40% {
+        transform: translateX(13px);
+    }
+
+    60% {
+        transform: translateX(-8px);
+    }
+
+    80% {
+        transform: translateX(8px);
+    }
 }
