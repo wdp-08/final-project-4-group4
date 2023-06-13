@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-size: cover;
+}
+
+body {
+    background-image: url("img/pexels-david-bartus-1166209.jpg");
+    background-size: cover;
+    animation: slidein 100s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+  
+@keyframes slidein {
+    from {
+      background-position: top;
+      background-size: 3000px;
+    }
+    to {
+      background-position: -100px 0px;
+      background-size: 2750px;
+    }
+}
+  
+.center {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;    
+} 
+  
+.waviy {
+    position: relative;
+    font-weight: bold;
+    margin-top: 50px;
+    font-family: Georgia, serif;
+}
+
+.waviy span {
+    position: relative;
+    display: inline-block;
+    font-size: 40px;
+    color: #fff;
+    text-transform: uppercase;
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
+}
+
+@keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+}  
+
+.container {
+    width: 1000px;
+    height: 400px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    perspective: 1000px;
+    margin-top: 130px;
+    justify-content: center;
+}
+
+.memory-card {
+    width: calc(14% - 19px);
+    height: calc(33% - 10px);
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    /* box-shadow: 2px 2px 2px rgba(10, 228, 2, 0.3); */
+    align-items: center;
+    justify-content: center;
+    /* border: 2px solid lime; */
+}
+
+.memory-card .back-view {
+    transform: rotateY(-180deg);
+}
+
+.memory-card.flip .front-view {
+    /* Flip card */
+    transform: rotateY(180deg); 
+}
+
+.memory-card.flip .back-view {
+    /* Flip card */
+    transform: rotateY(0); 
+}
+
+.front-view,
+.back-view {
+    width: 115px;
+    height: 115px;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 5px;
+    background-color: #f8f8f8;
+    position: absolute;
+    /* tampil bagian belakang hidden */
+    backface-visibility: hidden;
+    /* time flip */
+    transition: transform .40s;
+    pointer-events: none;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.memory-card.shake {
+    animation: shake 0.35s ease-in-out;
+  }
+  
+  @keyframes shake {
+  
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+  
+    20% {
+      transform: translateX(-13px);
+    }
+  
+    40% {
+      transform: translateX(13px);
+    }
+  
+    60% {
+      transform: translateX(-8px);
+    }
+  
+    80% {
+      transform: translateX(8px);
+    }
+  }

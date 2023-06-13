@@ -19,3 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     window.location.href = 'login.html';
   });
 });
+
+// Menampilkan menu level
+function showLevel() {
+  let levelMenu = document.querySelector('.level-menu');
+  let menu = document.querySelector('.menu');
+  levelMenu.classList.add('show');
+  menu.style.display = 'none';
+}
