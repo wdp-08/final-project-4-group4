@@ -4,6 +4,13 @@ let cardOne, cardTwo;
 let disableDeck;
 let totalCard = 0;
 
+const state = {
+    attempt: 0,
+    timecount : 0,
+    loop : null
+}
+
+
 
 function flipCard(e) {
     let clickCard = e.target;
@@ -16,6 +23,7 @@ function flipCard(e) {
         disableDeck = true;
         let cardOneImg = cardOne.querySelector(".back-view").src,
             cardTwoImg = cardTwo.querySelector(".back-view").src;
+            state.attempt++
         matchCards(cardOneImg, cardTwoImg);
     }
 }
@@ -28,6 +36,7 @@ function matchCards(img1, img2) {
                 return shuffleCard();
             }, 1000);
         }
+
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
@@ -62,6 +71,16 @@ function shuffleCard() {
     });
 }
 
+const timeloop = () => {
+ state.loop = setInterval(() => {
+    state.timecount++
+
+    document.querySelector('#attempt').innerHTML = `${state.attempt} attempt` 
+    document.querySelector('#time').innerHTML = `${state.timecount} sec`
+
+ }, 1000)
+}
+
 function easyLevel() {
     totalCard = 24;
     arrCard = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4];
@@ -71,7 +90,8 @@ function easyLevel() {
             card.classList.add("flip");
             setTimeout(() => {
                 card.classList.remove("flip");
-            }, 5000);
+                document.querySelector('#flipped').innerHTML = `${matched} flipped`;
+            }, 4000);
         }, 1000);
 
         card.addEventListener("click", function(e) {
@@ -80,11 +100,33 @@ function easyLevel() {
             }
           });
     });
+    timeloop();
 }
 
 function MediumLevel() {
     totalCard = 32;
     arrCard = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
+
+    cards.forEach((card) => {
+        setTimeout(() => {
+            card.classList.add("flip");
+            setTimeout(() => {
+                card.classList.remove("flip");
+            }, 6000);
+        }, 1000);
+
+        card.addEventListener("click", function(e) {
+            if (!disableDeck) {
+              flipCard(e);
+            }
+          });
+    });
+    timeloop();
+}
+
+function HardLevel() {
+    totalCard = 40;
+    arrCard = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 2, 4, 5, 6];
 
     cards.forEach((card) => {
         setTimeout(() => {
@@ -100,24 +142,5 @@ function MediumLevel() {
             }
           });
     });
-}
-
-function HardLevel() {
-    totalCard = 40;
-    arrCard = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 2, 4, 5, 6];
-
-    cards.forEach((card) => {
-        setTimeout(() => {
-            card.classList.add("flip");
-            setTimeout(() => {
-                card.classList.remove("flip");
-            }, 10000);
-        }, 1000);
-
-        card.addEventListener("click", function(e) {
-            if (!disableDeck) {
-              flipCard(e);
-            }
-          });
-    });
+    timeloop();
 }
