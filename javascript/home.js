@@ -24,6 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
 function showLevel() {
   let levelMenu = document.querySelector('.level-menu');
   let menu = document.querySelector('.menu');
-  levelMenu.classList.add('show');
+  levelMenu.style.display = 'block';
   menu.style.display = 'none';
+}
+
+// Hide menu level
+function hideLevel() {
+  let levelMenu = document.querySelector('.level-menu');
+  let menu = document.querySelector('.menu');
+  levelMenu.style.display = 'none';
+  menu.style.display = 'block';
 }
