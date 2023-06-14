@@ -1,16 +1,14 @@
 const cards = document.querySelectorAll(".memory-card");
 let matched = 0;
 let cardOne, cardTwo;
-let disableDeck;
+let disableDeck = false;
 let totalCard = 0;
 
 const state = {
     attempt: 0,
-    timecount : 0,
-    loop : null
+    timecount: 0,
+    loop: null
 }
-
-
 
 function flipCard(e) {
     let clickCard = e.target;
@@ -23,7 +21,7 @@ function flipCard(e) {
         disableDeck = true;
         let cardOneImg = cardOne.querySelector(".back-view").src,
             cardTwoImg = cardTwo.querySelector(".back-view").src;
-            state.attempt++
+        state.attempt++
         matchCards(cardOneImg, cardTwoImg);
     }
 }
@@ -72,13 +70,13 @@ function shuffleCard() {
 }
 
 const timeloop = () => {
- state.loop = setInterval(() => {
-    state.timecount++
+    state.loop = setInterval(() => {
+        state.timecount++
 
-    document.querySelector('#attempt').innerHTML = `${state.attempt} attempt` 
-    document.querySelector('#time').innerHTML = `${state.timecount} sec`
+        document.querySelector('#attempt').innerHTML = `${state.attempt}`
+        document.querySelector('#time').innerHTML = `${state.timecount} sec`
 
- }, 1000)
+    }, 1000)
 }
 
 function easyLevel() {
@@ -90,17 +88,21 @@ function easyLevel() {
             card.classList.add("flip");
             setTimeout(() => {
                 card.classList.remove("flip");
-                document.querySelector('#flipped').innerHTML = `${matched} flipped`;
+
+                const turnCard = document.querySelectorAll(".flip");
+                if (turnCard.length === 0) {
+                    timeloop();
+                }
+
             }, 4000);
         }, 1000);
 
-        card.addEventListener("click", function(e) {
+        card.addEventListener("click", function (e) {
             if (!disableDeck) {
-              flipCard(e);
+                flipCard(e);
             }
-          });
+        });
     });
-    timeloop();
 }
 
 function MediumLevel() {
@@ -112,16 +114,21 @@ function MediumLevel() {
             card.classList.add("flip");
             setTimeout(() => {
                 card.classList.remove("flip");
+
+                const turnCard = document.querySelectorAll(".flip");
+                if (turnCard.length === 0) {
+                    timeloop();
+                }
+
             }, 6000);
         }, 1000);
 
-        card.addEventListener("click", function(e) {
+        card.addEventListener("click", function (e) {
             if (!disableDeck) {
-              flipCard(e);
+                flipCard(e);
             }
-          });
+        });
     });
-    timeloop();
 }
 
 function HardLevel() {
@@ -133,14 +140,19 @@ function HardLevel() {
             card.classList.add("flip");
             setTimeout(() => {
                 card.classList.remove("flip");
+
+                const turnCard = document.querySelectorAll(".flip");
+                if (turnCard.length === 0) {
+                    timeloop();
+                }
+
             }, 8000);
         }, 1000);
 
-        card.addEventListener("click", function(e) {
+        card.addEventListener("click", function (e) {
             if (!disableDeck) {
-              flipCard(e);
+                flipCard(e);
             }
-          });
+        });
     });
-    timeloop();
 }
