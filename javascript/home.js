@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();
     localStorage.removeItem('loginUser');
     alert('Logout berhasil!');
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
   });
 });
 

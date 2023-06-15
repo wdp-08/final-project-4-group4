@@ -33,6 +33,6 @@ function validateForm(event) {
     localStorage.setItem("users", JSON.stringify(existingData));
 
     alert("Register berhasil!");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
   }
 }
