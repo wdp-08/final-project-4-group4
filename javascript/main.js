@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const password = document.getElementById('log-password').value;
 
     if (username === '' || password === '') {
-      alert('Data tidak boleh kosong!');
+      // alert('Data tidak boleh kosong!');
+      swal({
+        title: "Data tidak boleh kosong",
+        icon: "error",
+      });
       return false;
     }
 
@@ -16,11 +20,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const matchedUser = users.find(user => user.username === username && user.password === password);
 
     if (matchedUser) {
-      alert('Login berhasil!');
-      localStorage.setItem('loginUser', JSON.stringify(matchedUser.username));
-      window.location.href = 'home.html';
+      // alert('Login berhasil!');
+      swal({
+        title: "Login Berhasil!",
+        icon: "success",
+      })
+      .then((toHome) => {
+        if (toHome) {
+          localStorage.setItem('loginUser', JSON.stringify(matchedUser.username));
+          window.location.href = 'home.html';
+        }
+      })
     } else {
-      alert('Login gagal. Username atau password salah!');
+      // alert('Login gagal. Username atau password salah!');
+      swal({
+        title: "Login gagal. Username atau password salah!",
+        icon: "error",
+      });
     }
   });
 });

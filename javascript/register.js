@@ -6,7 +6,11 @@ function validateForm(event) {
   let password = document.getElementById("password").value;
 
   if (username === "" || email === "" || password === "") {
-    alert("Data tidak boleh kosong!");
+    swal({
+      title: "Data tidak boleh kosong!",
+      icon: "error",
+    });
+    // alert("Data tidak boleh kosong!");
     return false;
   } else {
     // Mengambil data dari Local Storage (jika ada)
@@ -15,7 +19,11 @@ function validateForm(event) {
     // Memeriksa apakah username sudah terpakai
     let isUsernameTaken = existingData.some(user => user.username === username);
     if (isUsernameTaken) {
-      alert("Username sudah terpakai!");
+      swal({
+        title: "Username sudah terpakai!",
+        icon: "error",
+      });
+      // alert("Username sudah terpakai!");
       return false;
     }
 
@@ -32,7 +40,15 @@ function validateForm(event) {
     // Menyimpan data ke dalam Local Storage
     localStorage.setItem("users", JSON.stringify(existingData));
 
-    alert("Register berhasil!");
-    window.location.href = "login.html";
+    // alert("Register berhasil!");
+    swal({
+      title: "Register Berhasil!",
+      icon: "success",
+    })
+    .then((willLogin) => {
+      if (willLogin) {
+        window.location.href = 'login.html';
+      }
+    })
   }
 }

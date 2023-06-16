@@ -15,8 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
   logoutButton.addEventListener('click', function(event) {
     event.preventDefault();
     localStorage.removeItem('loginUser');
-    alert('Logout berhasil!');
-    window.location.href = 'login.html';
+    swal({
+      title: "Anda yakin ingin keluar?",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willOut) => {
+      if (willOut) {
+        window.location.href = 'login.html';
+      } else {
+        window.location.href = 'home.html';
+      }
+    })
+    // alert('Logout berhasil!');
+    // window.location.href = 'login.html';
   });
 });
 
