@@ -47,7 +47,7 @@ function validateForm(event) {
     })
     .then((willLogin) => {
       if (willLogin) {
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
       }
     })
   }
