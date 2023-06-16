@@ -14,6 +14,93 @@ body {
   border-radius: 5%;
 }
 
+h1 {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  margin: auto;
+  display: block;
+  text-align: center;
+}
+
+h1 span {
+  padding-top: 20px;
+  position: relative;
+  top: 0px;
+  display: inline-block;
+  animation: bounce 0.3s ease infinite alternate;
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+    0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
+    0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+h1 span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+h1 span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+h1 span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+h1 span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+h1 span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+h1 span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+h1 span:nth-child(8) {
+  animation-delay: 0.2s;
+}
+
+h1 span:nth-child(9) {
+  animation-delay: 0.3s;
+}
+
+h1 span:nth-child(10) {
+  animation-delay: 0.4s;
+}
+
+h1 span:nth-child(11) {
+  animation-delay: 0.5s;
+}
+
+h1 span:nth-child(12) {
+  animation-delay: 0.6s;
+}
+
+h1 span:nth-child(13) {
+  animation-delay: 0.7s;
+}
+
+h1 span:nth-child(14) {
+  animation-delay: 0.8s;
+}
+
+/* ANIMATION */
+@keyframes bounce {
+  100% {
+    top: -20px;
+    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+      0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+      0 50px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
 .home-btn a {
   position: relative;
   color: #f5f5f5;
