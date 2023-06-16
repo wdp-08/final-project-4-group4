@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then((willOut) => {
       if (willOut) {
-        window.location.href = 'login.html';
+        window.location.href = 'index.html';
       } else {
         window.location.href = 'home.html';
       }
