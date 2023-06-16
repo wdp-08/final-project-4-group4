@@ -312,3 +312,43 @@ td {
     transform: translateX(8px);
   }
 }
+
+/* sweetalert */
+.swal-modal {
+  background-color: #2d71c2;
+}
+
+.swal-title{
+  font-size: 3.2rem;
+  color: #ffcd71;
+  font-weight: 700;
+  transform-origin: 0 100px;
+}
+
+.swal-text{
+  font-size: 1.6rem;
+  color: white;
+  font-weight: 700;
+}
+
+.swal-button--cancel{
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: #ffcd71;
+  color: #01438d;
+}
+
+.swal-button--confirm{
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: white;
+  color: #01438d;
+}
+
+.swal-icon--success__hide-corners::after{
+  background-color: #2d71c2;
+}
+
+.swal-footer{
+  text-align: center;
+}

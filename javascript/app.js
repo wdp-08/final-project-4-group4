@@ -30,9 +30,17 @@ function matchCards(img1, img2) {
     if (img1 === img2) {
         matched++;
         if (matched == totalCard / 2) {
-            setTimeout(() => {
-                return shuffleCard();
-            }, 1000);
+            swal({
+                title: "YOUR WIN!",
+                text: `Time: ${state.timecount} sec\nAttempt: ${state.attempt}`,
+                buttons: ["Play Again", "Home"],
+            }).then((willOut) => {
+                if (willOut) {
+                    window.location.href = 'home.html';
+                } else {
+                    location.reload();
+                }
+            });
         }
 
         cardOne.removeEventListener("click", flipCard);
